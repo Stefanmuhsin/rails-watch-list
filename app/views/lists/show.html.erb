@@ -1,0 +1,25 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i0.wp.com/nerdbot.com/wp-content/uploads/2020/05/24c508d17ebc1a6bfd273b9a7c1ee4ee.jpg?resize=1536%2C1536&ssl=1);">
+  <div class="container">
+  <h1><%= @list.name %></h1>
+  </div>
+</div>
+
+
+
+<ul>
+<% @list.bookmarks.each do |bookmark| %>
+<div class="card-trip container">
+  <img src= <%= bookmark.movie.poster_url %>/>
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= bookmark.movie.title %></h2>
+      <p><%= bookmark.movie.overview %></p>
+    </div>
+    <%= link_to 'Remove', bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: 'Delete?'}, class: 'btn btn-danger'%>
+  </div>
+</div>
+<% end %>
+</ul>
+
+<%= link_to 'Bookmark a movie to this list', new_list_bookmark_path(@list) %>
+<%= link_to 'home', lists_path %>

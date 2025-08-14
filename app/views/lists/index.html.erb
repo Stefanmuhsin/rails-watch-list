@@ -1,0 +1,23 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://platform.vox.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/9871033/Movies_end_of_year_2017.jpg?quality=90&strip=all&crop=0,9.8336063483858,100,80.332787303228);">
+  <div class="container">
+    <h1>Gander at out movie lists <strong>and find movies for your viewing pleasure</strong>!</h1>
+    <p>Find your right flick from our collection of <%= Movie.count %> movies.</p>
+  </div>
+</div>
+
+
+
+<h1>Lists</h1>
+<ul>
+<% @lists.each do |list| %>
+<li class='list-group-item' ><%= link_to list_path(list) do%>
+  <div class="card-product">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <div class="card-product-infos">
+    <h2 class='text-decoration-none'><%= list.name %></h2>
+  </div>
+</div><% end %></li>
+<% end %>
+</ul>
+
+<%= link_to 'Make a new list', new_list_path %>

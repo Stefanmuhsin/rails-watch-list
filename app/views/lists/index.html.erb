@@ -8,11 +8,15 @@
 
 
 <h1>Lists</h1>
-<ul>
+<ul class="d-flex flex-row">
 <% @lists.each do |list| %>
 <li class='list-group-item' ><%= link_to list_path(list), class: "text-decoration-none" do%>
   <div class="card-product">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <% if list.photo.attached? %>
+  <%= cl_image_tag list.photo.key %>
+<% else %>
+  <%= image_tag 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPQDYau3Hs4-xw1i8jVSUY4BlF4FLmg8lQqg&usqp=CAU' %>
+<% end %>
   <div class="card-product-infos">
     <h2 class='text-decoration-none'><%= list.name %></h2>
   </div>

@@ -10,7 +10,7 @@
 <h1>Lists</h1>
 <ul>
 <% @lists.each do |list| %>
-<li class='list-group-item' ><%= link_to list_path(list) do%>
+<li class='list-group-item' ><%= link_to list_path(list), class: "text-decoration-none" do%>
   <div class="card-product">
   <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
   <div class="card-product-infos">
